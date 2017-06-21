@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="14942c5f-bfaa-4997-8a84-49147e5befd1" activeEnvironment="Default" name="WSB_validateEmail" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8b3269b8-bf70-4e5b-bfd4-cf02e36dce03" wsaVersion="NONE" name="ValidateEmailSoap" type="wsdl" bindingName="{http://www.webservicex.net}ValidateEmailSoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/ValidateEmail.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://www.webservicex.net/ValidateEmail.asmx</con:endpoint></con:endpoints><con:operation id="3a7d1003-b7ce-4924-95d0-744dca8ac225" isOneWay="false" action="http://www.webservicex.net/IsValidEmail" name="IsValidEmail" bindingOperationName="IsValidEmail" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="521ef372-fa19-41d4-847d-034e888de45d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/ValidateEmail.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webservicex.net">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:IsValidEmail>
+         <!--Optional:-->
+         <web:Email>wsb@gmail.com</web:Email>
+      </web:IsValidEmail>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/IsValidEmail"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="fd9d5098-fbbd-4e3c-91d8-672bc17c3ce1" wsaVersion="NONE" name="ValidateEmailSoap12" type="wsdl" bindingName="{http://www.webservicex.net}ValidateEmailSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.net/ValidateEmail.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/ValidateEmail.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/ValidateEmail.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webservicex.net" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webservicex.net" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webservicex.net">
+      <s:element name="IsValidEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsValidEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsValidEmailResult" type="s:boolean"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="boolean" type="s:boolean"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IsValidEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:IsValidEmail"/>
+  </wsdl:message>
+  <wsdl:message name="IsValidEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:IsValidEmailResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IsValidEmailHttpGetIn">
+    <wsdl:part name="Email" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="IsValidEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:message name="IsValidEmailHttpPostIn">
+    <wsdl:part name="Email" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="IsValidEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean"/>
+  </wsdl:message>
+  <wsdl:portType name="ValidateEmailSoap">
+    <wsdl:operation name="IsValidEmail">
+      <wsdl:documentation>This method returns true or false for a given email address</wsdl:documentation>
+      <wsdl:input message="tns:IsValidEmailSoapIn"/>
+      <wsdl:output message="tns:IsValidEmailSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ValidateEmailHttpGet">
+    <wsdl:operation name="IsValidEmail">
+      <wsdl:documentation>This method returns true or false for a given email address</wsdl:documentation>
+      <wsdl:input message="tns:IsValidEmailHttpGetIn"/>
+      <wsdl:output message="tns:IsValidEmailHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ValidateEmailHttpPost">
+    <wsdl:operation name="IsValidEmail">
+      <wsdl:documentation>This method returns true or false for a given email address</wsdl:documentation>
+      <wsdl:input message="tns:IsValidEmailHttpPostIn"/>
+      <wsdl:output message="tns:IsValidEmailHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidateEmailSoap" type="tns:ValidateEmailSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="IsValidEmail">
+      <soap:operation soapAction="http://www.webservicex.net/IsValidEmail" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateEmailSoap12" type="tns:ValidateEmailSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="IsValidEmail">
+      <soap12:operation soapAction="http://www.webservicex.net/IsValidEmail" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateEmailHttpGet" type="tns:ValidateEmailHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="IsValidEmail">
+      <http:operation location="/IsValidEmail"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidateEmailHttpPost" type="tns:ValidateEmailHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="IsValidEmail">
+      <http:operation location="/IsValidEmail"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ValidateEmail">
+    <wsdl:port name="ValidateEmailSoap" binding="tns:ValidateEmailSoap">
+      <soap:address location="http://www.webservicex.net/ValidateEmail.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ValidateEmailSoap12" binding="tns:ValidateEmailSoap12">
+      <soap12:address location="http://www.webservicex.net/ValidateEmail.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ValidateEmailHttpGet" binding="tns:ValidateEmailHttpGet">
+      <http:address location="http://www.webservicex.net/ValidateEmail.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="ValidateEmailHttpPost" binding="tns:ValidateEmailHttpPost">
+      <http:address location="http://www.webservicex.net/ValidateEmail.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://m-VirtualBox:8089/mockValidateEmailSoap12</con:endpoint><con:endpoint>http://www.webservicex.net/ValidateEmail.asmx</con:endpoint></con:endpoints><con:operation id="419bacac-33dc-4e82-803c-f2797a46752e" isOneWay="false" action="http://www.webservicex.net/IsValidEmail" name="IsValidEmail" bindingOperationName="IsValidEmail" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="97fd5439-0e77-45bf-a209-833ea349bb3b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://m-VirtualBox:8089/mockValidateEmailSoap12</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmail>
+         <!--Optional:-->
+         <web:Email>WSB@gmail.com</web:Email>
+      </web:IsValidEmail>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="e34292cc-f40d-4134-a81d-9a8f7af8cc36" name="WSB_testsuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="572cfea5-ec26-4857-b9dd-4b7d967bf1d0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="request" name="SOAPrequest - True" id="b0f71ea3-0af5-443b-93fd-2a23f0b2fc74"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateEmailSoap12</con:interface><con:operation>IsValidEmail</con:operation><con:request name="SOAPrequest - True" id="2bf7639f-96c7-4091-bbb3-97caecc49717"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://m-VirtualBox:8089/mockValidateEmailSoap12</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmail>
+         <web:Email>WSB@gmail.com</web:Email>
+      </web:IsValidEmail>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0f41150d-27c4-4e00-b140-d7f998e56338" disabled="true"/><con:assertion type="Simple Contains" id="4182f4cb-2404-43fe-851d-9fa5fae109b3" name="Contains"><con:configuration><token>&lt;web:IsValidEmailResult>True&lt;/web:IsValidEmailResult></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="d6b9d0f7-f315-438a-8d6a-b4736eafd6b8" name="Script Assertion"><con:configuration/></con:assertion><con:assertion type="XPath Match" id="8df27c67-bae1-45ad-8f76-74d2175ecd0b" name="XPath Match"><con:configuration><path>count(//*:IsValidEmailResponse/*:IsValidEmailResult)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOAP request 2 - False" id="fd239ffd-781c-4a16-aa09-1f0c16e4a887"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateEmailSoap12</con:interface><con:operation>IsValidEmail</con:operation><con:request name="SOAP request 2 - False" id="2bf7639f-96c7-4091-bbb3-97caecc49717"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://m-VirtualBox:8089/mockValidateEmailSoap12</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net"  xmlns:web1="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmail>
+         <web:Email>WSB@gmail.com</web:Email>
+      </web:IsValidEmail>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0f41150d-27c4-4e00-b140-d7f998e56338" disabled="true"/><con:assertion type="Simple Contains" id="4182f4cb-2404-43fe-851d-9fa5fae109b3" name="Contains"><con:configuration><token>&lt;web:IsValidEmailResult>False&lt;/web:IsValidEmailResult></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" id="4c94ca97-f9d5-445f-b591-b6b353e7b590" name="Not SOAP Fault"/><con:assertion type="XPath Match" id="1d0cffeb-443d-4208-b1d4-d58741c90c44" name="XPath Match"><con:configuration><path>count(//*:IsValidEmailResponse/*:IsValidEmailResult)</path><content>1</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOAPrequest - empty response" id="27fdf43f-07f0-41ee-911c-db6c8f285663"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>ValidateEmailSoap12</con:interface><con:operation>IsValidEmail</con:operation><con:request name="SOAPrequest - empty response" id="2bf7639f-96c7-4091-bbb3-97caecc49717"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://m-VirtualBox:8087/mockValidateEmailSoap12</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmail>
+         <web:Email>WSB@gmail.com</web:Email>
+      </web:IsValidEmail>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0f41150d-27c4-4e00-b140-d7f998e56338"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="ddf8fb9b-7459-4e2e-b839-b238ffab6024" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService id="ce5def97-f0d6-442a-8e17-02e4129de5aa" port="8089" path="/mockValidateEmailSoap12" host="m-VirtualBox" name="ValidateEmailSoap12 MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="IsValidEmail" id="37c494c7-1409-4353-b662-7eb86193664e" interface="ValidateEmailSoap12" operation="IsValidEmail"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="f5ad2844-67eb-43d4-aefd-cb986559b889" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>True</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:response name="groovy response - True" id="f4ffda0d-e21a-46de-8062-5f07ad25e992" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>context.setProperty( "result", "True" )</con:script><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>${result}</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:response name="groovy response - False" id="f4ffda0d-e21a-46de-8062-5f07ad25e992" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>context.setProperty( "result", "False" )</con:script><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>${result}</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:response name="groovy response get status" id="f4ffda0d-e21a-46de-8062-5f07ad25e992" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>context.setProperty( "result", "False1" )
+context.setProperty( "status", mockRequest.httpResponse.status )</con:script><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>${result}</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+      <web1:Status>${status}</web1:Status>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:response name="groovy response get content" id="f4ffda0d-e21a-46de-8062-5f07ad25e992" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>context.setProperty( "result", "False1" )
+context.setProperty( "status", mockRequest.httpResponse.status )
+context.setProperty( "content", mockRequest.requestContent )</con:script><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>${result}</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+      <web1:Status>${status}</web1:Status>
+      <web2:IsValidContent>
+         <web2:Content>${content}</web2:Content>
+      </web2:IsValidContent>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:response name="groovy response get path" id="f4ffda0d-e21a-46de-8062-5f07ad25e992" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:script>context.setProperty( "result", "False1" )
+context.setProperty( "status", mockRequest.httpResponse.status )
+context.setProperty( "path", mockRequest.path )</con:script><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webservicex.net">
+   <soap:Header/>
+   <soap:Body>
+      <web:IsValidEmailResponse>
+         <web:IsValidEmailResult>${result}</web:IsValidEmailResult>
+      </web:IsValidEmailResponse>
+      <web1:Status>${status}</web1:Status>
+      <web2:IsValidPath>
+         <web2:Path>${path}</web2:Path>
+      </web2:IsValidPath>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webservicex.net/ValidateEmailSoap/IsValidEmailResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
