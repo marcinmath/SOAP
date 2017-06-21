@@ -25,12 +25,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 
             <executions>
                 <execution>
-                    <id>WSB-CurrencyConvertor</id>
+                    <id>MediCareSupplierSoap</id>
                     <configuration>
-                        <projectFile>WSB-CurrencyConvertor-soapui-project.xml</projectFile>
-
+                        <projectFile>WSB-Supplier-soapui-project.xml</projectFile>
                         <outputFolder>target/surefire-reports</outputFolder>
-                        <testSuite>CurrencyConvertorSoap12 TestSuite</testSuite>
+                        <testSuite>MediCareSupplierSoap12 TestSuite</testSuite>
 
                         <junitReport>true</junitReport>
                         <exportwAll>true</exportwAll>
